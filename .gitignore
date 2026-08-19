@@ -1,0 +1,29 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Research outputs (don't commit personal research)
+research_*.md
+research_*.json
+!examples/research_*.json
+
+# Temporary files
+*.tmp
+*.bak
