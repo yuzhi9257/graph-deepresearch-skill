@@ -32,17 +32,51 @@ independent verification.
 
 ## When to Use
 
-Use this skill when:
-- User asks to research a complex topic from multiple angles
-- User needs fact-based analysis with cited sources
-- User wants to investigate something thoroughly
-- User says "research", "investigate", "deep dive", "look into"
-- User needs to compare multiple perspectives on a topic
+### ✅ Use this skill when
 
-Do NOT use when:
-- Simple factual lookup (use tvly search directly)
-- User wants a quick summary (no deep research needed)
-- Topic is purely opinion-based (no facts to verify)
+The user's request involves **multi-source, fact-based research that benefits from parallel investigation and independent verification.**
+
+| Trigger | Example phrases |
+|---------|------------------|
+| Multi-angle research | "Research X from multiple perspectives", "Deep dive into Y", "Investigate Z thoroughly" |
+| Fact-based analysis | "What's the current state of X?", "Is it true that Y?", "Fact-check this claim" |
+| Comparative study | "Compare A vs B vs C", "What are the pros and cons of X?", "Evaluate options for Y" |
+| Investigative research | "Look into the X controversy", "What really happened with Y?", "Dig into Z" |
+| Decision support | "Should we adopt X?", "What are the risks of Y?", "Help me evaluate Z" |
+| Source-cited reporting | "Give me a research report on X with sources", "Cite your sources for Y" |
+
+**Rule of thumb:** If the answer requires consulting 3+ independent sources and synthesizing them, use this skill. If it can be answered from one source, use a simpler tool.
+
+### ❌ Do NOT use when
+
+| Scenario | Why not | Use instead |
+|----------|---------|-------------|
+| Simple factual lookup | One search answers it, pipeline is overkill | `tvly search "X"` directly |
+| Quick summary needed | User wants speed, not depth | Direct LLM response or single search |
+| Pure opinion/brainstorming | No facts to verify, no sources to cite | General conversation |
+| Code debugging / technical help | Not a research task | Use coding skills |
+| Real-time data (stock prices, live scores) | Sources change by the minute, pipeline is too slow | Direct API call |
+| Personal advice (medical, legal, financial) | Research skill is not a professional advisor | Consult a professional |
+| Topic has < 3 searchable angles | Too narrow for DAG decomposition | Single search + LLM synthesis |
+| User wants a 1-paragraph answer | Report format is overkill | Direct response |
+| Creative writing / fiction | No facts to verify | General LLM |
+| Historical consensus (well-established facts) | No need for multi-source verification | Direct LLM response |
+
+### Decision Flowchart
+
+```
+User request arrives
+    │
+    ├── Can it be answered with 1 search? ──Yes──→ Use tvly search directly
+    │
+    ├── Does it need multiple sources? ──No──→ Direct LLM response
+    │
+    ├── Are there facts to verify? ──No──→ Not a research task
+    │
+    ├── Is it real-time data? ──Yes──→ Use API, not this pipeline
+    │
+    └── None of the above ──→ USE THIS SKILL
+```
 
 ---
 
