@@ -8,6 +8,8 @@ description: |
   with verified facts, confidence levels, and complete source chains.
   Triggers: deep research, investigate, research topic, fact-based analysis, source-cited report,
   multi-source research, comprehensive analysis, thorough investigation.
+  Do not use for simple factual lookups, quick summaries, or opinion-only questions with
+  no facts to verify — use a direct search instead.
 ---
 
 # Graph Deep Research
