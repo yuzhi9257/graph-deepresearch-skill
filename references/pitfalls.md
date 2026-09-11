@@ -60,7 +60,7 @@ If no → Missing verification.
 
 ```json
 {
-  "claim": "PAT has hundreds of users"
+  "claim": "Product X has hundreds of users"
 }
 ```
 
@@ -70,11 +70,11 @@ If no → Missing verification.
 
 ```json
 {
-  "claim": "PAT has hundreds of users",
+  "claim": "Product X has hundreds of users",
   "source": {
-    "url": "https://wallstreetcn.com/articles/3778014",
-    "title": "Wall Street CN Translation",
-    "date": "2026-08-17",
+    "url": "https://example.com/article",
+    "title": "Example News Report",
+    "date": "YYYY-MM-DD",
     "type": "news",
     "credibility": "medium"
   }
@@ -107,10 +107,10 @@ If > 0 → Incomplete.
 
 ```json
 {
-  "claim": "Company X has 1000 employees (as of 2025, may be outdated)",
+  "claim": "Company X has 1000 employees (as of YYYY, may be outdated)",
   "source": {
     "type": "llm_knowledge",
-    "cutoff_date": "2025-06",
+    "cutoff_date": "YYYY-MM",
     "warning": "Verify with recent sources"
   },
   "confidence": 0.5
@@ -316,7 +316,7 @@ If < 0.1 → Likely inflated or not differentiated.
 ## Methodology
 - Search tools: tavily-search
 - Sources consulted: 15
-- Time range: 2026-08-01 to 2026-08-19
+- Time range: YYYY-MM-DD to YYYY-MM-DD
 - Limitations: No access to proprietary databases
 
 ## Findings

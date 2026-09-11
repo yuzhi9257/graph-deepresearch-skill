@@ -41,7 +41,7 @@ tvly search "query" --time-range week --topic news --json
 tvly search "query" --time-range month --json
 
 # Custom date range
-tvly search "query" --start-date 2026-01-01 --end-date 2026-08-19 --json
+tvly search "query" --start-date YYYY-MM-DD --end-date YYYY-MM-DD --json
 ```
 
 **Domain-filtered search:**
@@ -203,7 +203,7 @@ When multiple sources are available, prioritize in this order:
 
 - **Be specific:** "LangGraph multi-agent orchestration patterns" > "LangGraph"
 - **Use quotes:** "exact phrase" for precise matches
-- **Add context:** "AI agent finance 2026" not just "AI agents"
+- **Add context:** "AI agent finance {year}" not just "AI agents"
 - **Multiple queries:** Search 2-3 variations per sub-question
 
 ### Query Examples
@@ -213,7 +213,7 @@ When multiple sources are available, prioritize in this order:
 "AI agents"
 
 # Good: Specific and contextualized
-"LangGraph multi-agent supervisor pattern implementation 2026"
+"LangGraph multi-agent supervisor pattern implementation {year}"
 
 # Good: Multiple angles
 "comparison LangGraph vs CrewAI vs AutoGen features"

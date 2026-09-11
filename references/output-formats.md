@@ -11,8 +11,8 @@ research_{topic_slug}_{YYYYMMDD}.json
 
 Example:
 ```
-research_ai_finance_agents_20260819.md
-research_ai_finance_agents_20260819.json
+research_ai_finance_agents_YYYYMMDD.md
+research_ai_finance_agents_YYYYMMDD.json
 ```
 
 ## Markdown Report Schema
@@ -316,7 +316,7 @@ Generated Markdown and JSON outputs.
 {
   "metadata": {
     "topic": "AI Agent Applications in Finance",
-    "date": "2026-08-19",
+    "date": "YYYY-MM-DD",
     "pipeline_version": "1.0.0",
     "confidence_level": "high",
     "tools_used": ["tavily-search", "web_fetch"],
@@ -334,11 +334,11 @@ Generated Markdown and JSON outputs.
     "verified": [
       {
         "id": "q1_f1",
-        "claim": "Multiple financial firms presented AI agent systems at major tech conferences in 2026",
+        "claim": "Multiple financial firms presented AI agent systems at major tech conferences in the past year",
         "source": {
-          "url": "https://www.youtube.com/watch?v=example",
+          "url": "https://example.com/conference-talk",
           "title": "AI Agents in Finance Conference Talk",
-          "date": "2026-08-16",
+          "date": "YYYY-MM-DD",
           "type": "official",
           "credibility": "high"
         },
@@ -351,9 +351,9 @@ Generated Markdown and JSON outputs.
         "id": "q1_f2",
         "claim": "Internal AI tools have hundreds of daily users across financial institutions",
         "source": {
-          "url": "https://techcrunch.com/example",
+          "url": "https://example.com/adoption-report",
           "title": "Financial AI Adoption Report",
-          "date": "2026-08-17",
+          "date": "YYYY-MM-DD",
           "type": "news",
           "credibility": "medium"
         },
@@ -379,19 +379,19 @@ Generated Markdown and JSON outputs.
   
   "sources": [
     {
-      "url": "https://www.youtube.com/watch?v=example",
+      "url": "https://example.com/conference-talk",
       "title": "AI Agents in Finance Conference Talk",
-      "date": "2026-08-16",
+      "date": "YYYY-MM-DD",
       "type": "official",
       "credibility": "high"
     }
   ],
   
   "methodology": {
-    "time_range": "2026-08-01 to 2026-08-19",
+    "time_range": "YYYY-MM-DD to YYYY-MM-DD",
     "limitations": [
-      "Primary sources limited to English-language official presentations",
-      "Chinese translations may introduce interpretation errors"
+      "Primary sources limited to official presentations",
+      "Translated sources may introduce interpretation errors"
     ]
   },
   

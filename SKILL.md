@@ -1,15 +1,6 @@
 ---
 name: graph-deepresearch
-description: |
-  Graph-based deep research with DAG orchestration, fact verification, and source attribution.
-  Use when the user asks to research a complex topic, investigate a subject deeply, conduct
-  multi-angle analysis, or says "research X", "investigate Y", "deep dive into Z", "look into
-  W thoroughly", or needs fact-based analysis with cited sources. Produces structured reports
-  with verified facts, confidence levels, and complete source chains.
-  Triggers: deep research, investigate, research topic, fact-based analysis, source-cited report,
-  multi-source research, comprehensive analysis, thorough investigation.
-  Do not use for simple factual lookups, quick summaries, or opinion-only questions with
-  no facts to verify — use a direct search instead.
+description: Deep research with DAG orchestration, parallel subagent workers, independent fact verification, adversarial review, and full source attribution. Use when the user asks to research or investigate a complex topic, compare options, fact-check a claim, or needs a multi-source report with cited sources and confidence levels. Not for simple factual lookups, quick summaries, or real-time data — use a direct search instead.
 ---
 
 # Graph Deep Research
@@ -142,26 +133,26 @@ After decomposing the topic, the main agent must decide: **is this fact-finding 
 #### If decision-support → ask the user about principles:
 
 ```
-我发现这是一个需要决策判断的研究课题。为了让研究不仅停留在"事实是什么"，
-而是进一步推演出"基于事实，可能的未来走向是什么"，我需要一个原则库。
+This is a decision-support research topic. To push beyond "what the facts are" into
+"what may follow from them", I need a principle library.
 
-📌 什么是原则库？
-原则库是你积累的因果规则——"当 X 发生时，Y 通常会跟上"。
-比如："当新技术渗透率 < 15% 时，监管通常滞后 12-18 个月"。
-顶级投资机构用了数十年才沉淀出他们的原则库。
+📌 What is a principle library?
+A principle library is your accumulated set of causal rules — "when X happens, Y usually follows."
+Example: "When a new technology's penetration is below 15%, regulation typically lags by 12-18 months."
+Top investment firms took decades to distill theirs.
 
-📁 你有原则库吗？
-- 有 → 请提供文件路径或直接贴出来，我会读取并用于推演
-- 没有 → 我会使用公认分析框架作为替代：
-  • SWOT 分析（优势/劣势/机会/威胁）
-  • Porter 五力模型
-  • PESTEL 宏观环境分析
-  • 技术成熟度曲线（Gartner Hype Cycle）
-  • 跨行业历史类比（从类似案例推演）
-  • 不确定性矩阵（概率 × 影响）
-- 不确定 → 告诉我你的领域，我推荐合适的框架
+📁 Do you have a principle library?
+- Yes → give me the file path or paste it; I'll read it and use it for reasoning
+- No → I'll use established analytical frameworks instead:
+  • SWOT analysis
+  • Porter's Five Forces
+  • PESTEL macro-environment analysis
+  • Gartner Hype Cycle
+  • Cross-industry historical analogy
+  • Uncertainty matrix (probability × impact)
+- Not sure → tell me your domain and I'll recommend suitable frameworks
 
-请选择（1=有原则库 / 2=用公认框架 / 3=推荐框架）：
+Choose (1 = have a library / 2 = use established frameworks / 3 = recommend frameworks):
 ```
 
 **User response handling:**
@@ -218,7 +209,7 @@ Each worker subagent MUST return valid JSON matching this schema:
       "source": {
         "url": "https://example.com/article",
         "title": "Article Title",
-        "date": "2026-08-19",
+        "date": "YYYY-MM-DD",
         "type": "official|academic|tech_blog|news|community|social",
         "credibility": "high|medium|low"
       },
@@ -245,7 +236,7 @@ Each worker subagent MUST return valid JSON matching this schema:
 2. Adversarial Agent — actively seeks counter-evidence and opposing viewpoints**
 
 Both operate in isolated contexts. Neither sees the other's output or other workers' results.
-对抗审查 Agent 必须设，对抗幻觉与确认偏误。
+The adversarial agent is mandatory — it counters hallucination and confirmation bias.
 
 #### 3a. Dispatch Verifier (Fact Check)
 
@@ -453,7 +444,7 @@ Generate final report in both Markdown and JSON formats.
 {
   "metadata": {
     "topic": "...",
-    "date": "2026-08-19",
+    "date": "YYYY-MM-DD",
     "pipeline_version": "2.0.0",
     "tools_used": ["tavily-search", "web_fetch"],
     "workers_dispatched": 4,
@@ -499,7 +490,7 @@ See [references/search-strategies.md](references/search-strategies.md) for:
   "claim": "...",
   "source": {
     "type": "llm_knowledge",
-    "cutoff_date": "2026-01",
+    "cutoff_date": "YYYY-MM",
     "note": "May be outdated, verify with search"
   },
   "confidence": 0.5,

@@ -79,13 +79,13 @@ curl -s -o /dev/null -w "%{http_code}" "https://example.com/article"
 **Example verification:**
 ```json
 {
-  "claim": "PAT has hundreds of daily users",
-  "source_url": "https://wallstreetcn.com/articles/3778014",
+  "claim": "Product X has hundreds of daily users",
+  "source_url": "https://example.com/article",
   "verification": {
     "found_in_source": true,
-    "exact_quote": "数百名投资人日常使用",
+    "exact_quote": "hundreds of daily active users",
     "context_accurate": true,
-    "note": "Matches claim, but source is a translation, not original"
+    "note": "Matches claim, but source is a secondary report, not the original"
   }
 }
 ```
@@ -122,7 +122,7 @@ curl -s -o /dev/null -w "%{http_code}" "https://example.com/article"
 **Cross-reference matrix:**
 ```json
 {
-  "topic": "PAT user count",
+  "topic": "Product X user count",
   "sources": [
     {"claim": "hundreds of users", "credibility": "high", "type": "official"},
     {"claim": "500+ users", "credibility": "medium", "type": "media"},
@@ -148,7 +148,7 @@ curl -s -o /dev/null -w "%{http_code}" "https://example.com/article"
 
 ```json
 {
-  "verification_id": "v_20260819_001",
+  "verification_id": "v_001",
   "findings_reviewed": 15,
   "verification_result": "PASS|PASS_WITH_CAVEATS|FAIL",
   
